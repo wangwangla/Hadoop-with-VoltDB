@@ -4,6 +4,7 @@ Hadoop Map-Reduce運算時, 各台worker可以in-memory取得voltDB資料<br>
 
 # How To use
 (1) 裝VoltDB
+```
 java 要 1.8 以上
 $ sudo apt-get -y install ant build-essential ant-optional default-jdk python cmake valgrind ntp ccache git-arch git-completion git-core git-svn git-doc git-email python-httplib2 python-setuptools python-dev apt-show-versions
 $ wget https://github.com/VoltDB/voltdb/archive/voltdb-6.0.1.tar.gz
@@ -15,16 +16,23 @@ $ export CLASSPATH="$CLASSPATH:$HOME/voltdb/voltdb/*:$HOME/voltdb/lib/*:./"
 $ alias voltdb='/home/yenkuanlee/voltdb/bin/sqlcmd'
 $ /home/yenkuanlee/voltdb/bin/voltdb create --background     #啟動DB
 $ voltdb
+```
 (2) 裝Hadoop
+```
 http://www.jerrynest.com/install-hadoop-2-6-0-on-ubuntu14-04/
+```
 (3)put jar to hdfs
+```
 $ hadoop fs -put ~/voltdb/voltdb/voltdb-6.0.1.jar .
 $ hadoop fs -put ~/voltdb/voltdb/voltdbclient-6.0.1.jar .
+```
 (4)add conf in Java
+```
 conf.set("tmpjars","/home/yenkuanlee/voltdb/voltdb/voltdb-6.0.1.jar");
 conf.set("tmpjars","/user/yenkuanlee/voltdb-6.0.1.jar");
 conf.set("tmpjars","/home/yenkuanlee/voltdb/voltdb/voltdbclient-6.0.1.jar");
 conf.set("tmpjars","/user/yenkuanlee/voltdbclient-6.0.1.jar");
+```
 (5) Coding
 ```
 import java.io.IOException;

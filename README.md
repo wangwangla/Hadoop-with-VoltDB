@@ -26,6 +26,7 @@ conf.set("tmpjars","/user/yenkuanlee/voltdb-6.0.1.jar");
 conf.set("tmpjars","/home/yenkuanlee/voltdb/voltdb/voltdbclient-6.0.1.jar");
 conf.set("tmpjars","/user/yenkuanlee/voltdbclient-6.0.1.jar");
 (5) Coding
+'''
 import java.io.IOException;
 import java.util.StringTokenizer;
 import org.apache.hadoop.conf.Configuration;
@@ -100,3 +101,4 @@ public void DoQuery(String ip,String sql){
     System.exit(job.waitForCompletion(true) ? 0 : 1);
   }
 }
+'''
